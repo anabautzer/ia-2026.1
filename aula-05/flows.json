@@ -1,0 +1,143 @@
+[
+    {
+        "id": "03414c88671975a8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2c003dac8c34de74",
+        "type": "inject",
+        "z": "03414c88671975a8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Mensagem: ",
+        "payload": "Localização das unidades",
+        "payloadType": "str",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "c0f444bf215c4978"
+            ]
+        ]
+    },
+    {
+        "id": "2b47637d7074d4c9",
+        "type": "debug",
+        "z": "03414c88671975a8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c0f444bf215c4978",
+        "type": "watson-assistant-v2",
+        "z": "03414c88671975a8",
+        "name": "",
+        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/3feb1ead-8098-4c8d-baac-26ba79086a86",
+        "assistant_id": "cc83c1c1-8a10-487f-aa22-ab396f1bcbd1",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "77802fa73b0e74ab"
+            ]
+        ]
+    },
+    {
+        "id": "77802fa73b0e74ab",
+        "type": "function",
+        "z": "03414c88671975a8",
+        "name": "posProcWa",
+        "func": "msg.payload = msg.payload.output.generic[0].text;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "2b47637d7074d4c9"
+            ]
+        ]
+    },
+    {
+        "id": "9c76e53a57b4df70",
+        "type": "telegram receiver",
+        "z": "03414c88671975a8",
+        "name": "",
+        "bot": "",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "427436891329390f",
+        "type": "telegram sender",
+        "z": "03414c88671975a8",
+        "name": "",
+        "bot": "",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b11854004103789",
+        "type": "debug",
+        "z": "03414c88671975a8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 280,
+        "wires": []
+    }
+]
