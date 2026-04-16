@@ -1,0 +1,148 @@
+[
+    {
+        "id": "5599b573851356bd",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cca05cbfcae6ce4a",
+        "type": "telegram receiver",
+        "z": "5599b573851356bd",
+        "name": "",
+        "bot": "09070e972e7d8125",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "13afff7116594033"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "800bdadec0722520",
+        "type": "telegram sender",
+        "z": "5599b573851356bd",
+        "name": "",
+        "bot": "09070e972e7d8125",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 950,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13afff7116594033",
+        "type": "function",
+        "z": "5599b573851356bd",
+        "name": "PrepProcessInput",
+        "func": "msg.params={\n    'session_id' : 123\n}\nmsg.chatId = msg.payload.chatId;\nmsg.payload = msg.payload.content;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "d4ab778ca4f17af0"
+            ]
+        ]
+    },
+    {
+        "id": "5947d05e5c2bbd8e",
+        "type": "function",
+        "z": "5599b573851356bd",
+        "name": "PrepProcessOutput",
+        "func": "msg.payload={\n    chatId : msg.chatId,\n    type : 'message',\n    content : msg.payload.output.generic[0].text\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "800bdadec0722520"
+            ]
+        ]
+    },
+    {
+        "id": "09fe3f26715453f2",
+        "type": "debug",
+        "z": "5599b573851356bd",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d4ab778ca4f17af0",
+        "type": "watson-assistant-v2",
+        "z": "5599b573851356bd",
+        "name": "",
+        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/3feb1ead-8098-4c8d-baac-26ba79086a86",
+        "assistant_id": "cc83c1c1-8a10-487f-aa22-ab396f1bcbd1",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 630,
+        "y": 200,
+        "wires": [
+            [
+                "5947d05e5c2bbd8e",
+                "09fe3f26715453f2"
+            ]
+        ]
+    },
+    {
+        "id": "09070e972e7d8125",
+        "type": "telegram bot",
+        "botname": "Abrobabot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
