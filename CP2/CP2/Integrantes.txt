@@ -1,0 +1,14 @@
+Ana Carolina Orcelli Bautzer - 570281
+Eduardo Lima de Souza - 570412
+Lucas Fortunato - 572860
+Lucas Costa - 571016
+
+API Key do telegram: 8719993534:AAEefyANX_o413CiYiGV6whLY927D2b4usQ
+
+Nome de usuário: SchoolBotCP_Bot (SchoolBot)
+
+API Key: bpTkb0ZGfC_rWlOVvaEsJ3ivDkz1tr9-2tMqxWkueRvk
+
+URL: https://api.us-south.assistant.watson.cloud.ibm.com/instances/3feb1ead-8098-4c8d-baac-26ba79086a86
+
+ID: 71737d63-2c9d-42d2-9f42-f27d45159476

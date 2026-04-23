@@ -1,0 +1,627 @@
+{
+  "intents": [
+    {
+      "intent": "Duvidas",
+      "examples": [
+        {
+          "text": "Como funciona a matrícula?"
+        },
+        {
+          "text": "Como realizar a matrícula?"
+        },
+        {
+          "text": "Como realizar do diploma?"
+        },
+        {
+          "text": "Como retiro o diploma?"
+        },
+        {
+          "text": "Diploma."
+        },
+        {
+          "text": "Duvida"
+        },
+        {
+          "text": "Duvidas"
+        },
+        {
+          "text": "Onde faço a matrícula?"
+        },
+        {
+          "text": "O que precisa para fazer a matricula?"
+        },
+        {
+          "text": "O que precisa para fazer retirar o diploma?"
+        },
+        {
+          "text": "Quais documentos da matrícula?"
+        },
+        {
+          "text": "Quem pode fazer a matricula?"
+        },
+        {
+          "text": "Quem pode retirar o diploma?"
+        },
+        {
+          "text": "Retirada do diploma."
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Matricula",
+      "examples": [
+        {
+          "text": "ana@lalala.com.br"
+        },
+        {
+          "text": "Cadastramento."
+        },
+        {
+          "text": "Cadastro."
+        },
+        {
+          "text": "Como fazer o cadastro?"
+        },
+        {
+          "text": "E-mail."
+        },
+        {
+          "text": "E-mail da matrícula."
+        },
+        {
+          "text": "Matrícula."
+        },
+        {
+          "text": "Nome completo."
+        },
+        {
+          "text": "Nome completo da matrícula"
+        },
+        {
+          "text": "Qual e-mail utilizar?"
+        },
+        {
+          "text": "Qual o status da matrícula?"
+        },
+        {
+          "text": "Qual telefone usar?"
+        },
+        {
+          "text": "Telefone."
+        },
+        {
+          "text": "Telefone da matrícula"
+        },
+        {
+          "text": "Telefone da matrícula."
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Status_matricula",
+      "examples": [
+        {
+          "text": "Como vejo o status da matricula?"
+        },
+        {
+          "text": "Qual é o status?"
+        },
+        {
+          "text": "Qual o meu status?"
+        },
+        {
+          "text": "Status."
+        },
+        {
+          "text": "Status da matrícula."
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "diploma",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Certificado",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Diploma",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Documento final",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu diploma",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Retirada do diploma",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Retirar",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "duvida_matricula",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Dúvidas matrículas",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Duvidas sobre a matrícula",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Dúvidas sobre a matrícula",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Sobre a matrícula",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "duvidas",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Duvida",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Dúvida",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Duvidas",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Dúvidas",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Minha dúvida",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Minha duvida é",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "email",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "@",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "00000@0000.com.br",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Correio eletrônico",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "E-mail",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "E-mail:",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Email",
+          "synonyms": [
+            "email",
+            "email:"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu e-mail é",
+          "synonyms": [
+            "meu e-mail é"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu email é",
+          "synonyms": [
+            "meu email é"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nome",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Meu nome",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu nome é",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Nome",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Nome:",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Nome completo",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "status",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Em andamento",
+          "synonyms": [
+            "Andamento",
+            "Em análise",
+            "Processando"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Ok",
+          "synonyms": [
+            "Aprovado",
+            "Confirmado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Pendência",
+          "synonyms": [
+            "Faltando documento",
+            "Pendente"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Status",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Status da Matrícula",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "telefone",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Celular",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Contato",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu número é",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Meu telefone",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Número",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Telefone",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Como posso te ajudar? Respondo sobre Matrículas, Status da Matrícula e Dúvidas, sobre matrícula e retirada de diploma."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_8_1776954022261",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Status da Matrícula",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Status da sua Matrícula ainda está pendente."
+              },
+              {
+                "text": "O Status da sua Matrícula está ok."
+              },
+              {
+                "text": "O Status da sua Matrícula está em andamento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Status_matricula && @status",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_10_1776953673685",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Matrículas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A matricula é realizada de forma remota, via chat."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1776954022261",
+      "conditions": "#Duvidas && @duvida_matricula",
+      "dialog_node": "node_3_1776954901923"
+    },
+    {
+      "type": "standard",
+      "title": "Retirada do Diploma",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A retirada do diploma é na unidade."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1776954022261",
+      "conditions": "#Duvidas && @diploma",
+      "dialog_node": "node_4_1776954959788",
+      "previous_sibling": "node_3_1776954901923"
+    },
+    {
+      "type": "standard",
+      "title": "Matricula_inicio",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Vamos iniciar a sua matrícula! Qual o seu nome?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Matricula",
+      "dialog_node": "node_5_1776952034427",
+      "previous_sibling": "node_10_1776953673685"
+    },
+    {
+      "type": "standard",
+      "title": "Nome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo. Qual seu e-mail?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1776952034427",
+      "conditions": "#Matricula && @nome",
+      "dialog_node": "node_5_1776953258232"
+    },
+    {
+      "type": "standard",
+      "title": "Email",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo. E qual é seu telefone?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1776953258232",
+      "conditions": "#Matricula && @email",
+      "dialog_node": "node_6_1776953396086"
+    },
+    {
+      "type": "standard",
+      "title": "Duvidas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sobre a matrícula ou retirada de diploma?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Duvidas",
+      "dialog_node": "node_8_1776954022261",
+      "previous_sibling": "node_5_1776952034427"
+    },
+    {
+      "type": "standard",
+      "title": "Telefone",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo. Cadastro concluído com sucesso!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1776953396086",
+      "conditions": "#Matricula && @telefone",
+      "dialog_node": "node_9_1776953487314"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "",
+  "name": "Assistente de Matrícula-dialog"
+}
