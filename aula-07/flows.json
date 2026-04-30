@@ -1,0 +1,347 @@
+[
+    {
+        "id": "668853a60b4694c8",
+        "type": "tab",
+        "label": "Checkpoint 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b32480cbbb418b65",
+        "type": "comment",
+        "z": "668853a60b4694c8",
+        "name": "Coloque os nomes e RMs AQUI!",
+        "info": "",
+        "x": 730,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b926e870b16ec8bd",
+        "type": "function",
+        "z": "668853a60b4694c8",
+        "name": "procIN Text",
+        "func": "msg.params = {\n    \"session_id\": 123\n};\nmsg.chatId = msg.payload.chatId;\nmsg.payload = msg.payload.content;\n\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "a267416b44de4a8b"
+            ]
+        ]
+    },
+    {
+        "id": "216435a8eff735c9",
+        "type": "function",
+        "z": "668853a60b4694c8",
+        "name": "procOut Text and Opt",
+        "func": "const generic = msg.payload.output.generic || [];\nlet buttons = [];\nlet textParts = [];\n\ngeneric.forEach(item => {\n    if (item.response_type === \"text\" && item.text) {\n        textParts.push(item.text);\n    }\n\n    if (item.response_type === \"option\" && item.options) {\n        if (item.title) {\n            textParts.push(item.title);\n        }\n\n        buttons = item.options.map(opt => [{\n            text: opt.label,\n            callback_data: (opt.value && opt.value.input && opt.value.input.text)\n                ? opt.value.input.text\n                : opt.label\n        }]);\n    }\n});\n\nmsg.payload = {\n    chatId: msg.chatId,\n    type: \"message\",\n    content: textParts.join(\"\\n\") || msg.payload.content,\n    options: {}\n};\n\nif (buttons.length > 0) {\n    msg.payload.options.reply_markup = JSON.stringify({\n        inline_keyboard: buttons\n    });\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 380,
+        "wires": [
+            [
+                "35bf8ed5ece4780b"
+            ]
+        ]
+    },
+    {
+        "id": "b1ab0a120e0bdaf9",
+        "type": "comment",
+        "z": "668853a60b4694c8",
+        "name": "Utilizar antes do Watson Assistant",
+        "info": "",
+        "x": 440,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f76534118d790e72",
+        "type": "comment",
+        "z": "668853a60b4694c8",
+        "name": "Utilizar depois do Watson Assistant",
+        "info": "",
+        "x": 1040,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b7db4a25430a8bbc",
+        "type": "comment",
+        "z": "668853a60b4694c8",
+        "name": "Clique aqui para orientações!",
+        "info": "Configuração do Telegram no BotFather:\n 1. Criar um Bot ouselecionar um bot existente;\n 2. Pegar o nome do bot APIKey (deve terminar em Bot ou _bot).\n\nConfiguração do Watson Assistant v2:\n 1. Pegar o APIKey, Service Endpoint (url logo abaixo do APIKey)\n 2. Em outra página o Assitant ID. ",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4db0523b3034f0f6",
+        "type": "telegram receiver",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "bot": "10b203f385dc9ed8",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "e49688bfc956f2f9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "35bf8ed5ece4780b",
+        "type": "telegram sender",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "bot": "10b203f385dc9ed8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1310,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a267416b44de4a8b",
+        "type": "watson-assistant-v2",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/3feb1ead-8098-4c8d-baac-26ba79086a86",
+        "assistant_id": "cc83c1c1-8a10-487f-aa22-ab396f1bcbd1",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "216435a8eff735c9",
+                "acba036bfe42b8de"
+            ]
+        ]
+    },
+    {
+        "id": "dd384b94e8fda406",
+        "type": "debug",
+        "z": "668853a60b4694c8",
+        "name": "Analista",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "db0582c30bdd1d32",
+        "type": "telegram event",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "bot": "10b203f385dc9ed8",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "b926e870b16ec8bd"
+            ]
+        ]
+    },
+    {
+        "id": "275873a39e0278b7",
+        "type": "watson-speech-to-text",
+        "z": "668853a60b4694c8",
+        "name": "STT",
+        "alternatives": 1,
+        "speakerlabels": true,
+        "smartformatting": false,
+        "lang": "pt-BR",
+        "langhidden": "pt-BR",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "custom-weight": "0.5",
+        "band": "BroadbandModel",
+        "bandhidden": "",
+        "keywords": "",
+        "keywords-threshold": "0.5",
+        "word-confidence": false,
+        "password": "",
+        "apikey": "egOti_tyH2yfljhDLg3yJEcB9d9H7C_puQWAjRiMGN_K",
+        "payload-response": true,
+        "streaming-mode": false,
+        "streaming-mute": true,
+        "auto-connect": false,
+        "discard-listening": false,
+        "disable-precheck": false,
+        "service-endpoint": "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/0bbf2948-a1a7-4efc-a235-e81c241c9d5c",
+        "x": 690,
+        "y": 540,
+        "wires": [
+            [
+                "a267416b44de4a8b"
+            ]
+        ]
+    },
+    {
+        "id": "6ac59da7c0e4504c",
+        "type": "function",
+        "z": "668853a60b4694c8",
+        "name": "procIN Voice",
+        "func": "msg.params = {\n    \"session_id\": 123\n};\nmsg.chatId = msg.payload.chatId;\nmsg.payload = msg.payload.weblink;\n\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "275873a39e0278b7"
+            ]
+        ]
+    },
+    {
+        "id": "e49688bfc956f2f9",
+        "type": "switch",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "message",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "voice",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "b926e870b16ec8bd"
+            ],
+            [
+                "6ac59da7c0e4504c"
+            ]
+        ]
+    },
+    {
+        "id": "915cd7b07a548790",
+        "type": "watson-text-to-speech",
+        "z": "668853a60b4694c8",
+        "name": "TTS",
+        "lang": "pt-BR",
+        "langhidden": "pt-BR",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "pt-BR_CamilaNatural",
+        "voicehidden": "pt-BR_CamilaNatural",
+        "format": "audio/wav",
+        "password": "",
+        "apikey": "SlF_BpoSwWcC5mK6XhXfGOPb15wUiSVy1GZt-eMm7mST",
+        "payload-response": true,
+        "service-endpoint": "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/f42b0317-f436-4177-8d22-2b8503d55a59",
+        "x": 1250,
+        "y": 500,
+        "wires": [
+            [
+                "1ae4b32560d3ba7e"
+            ]
+        ]
+    },
+    {
+        "id": "acba036bfe42b8de",
+        "type": "function",
+        "z": "668853a60b4694c8",
+        "name": "procOut TTS",
+        "func": "msg.payload= msg.payload.output.generic[0].text\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 520,
+        "wires": [
+            [
+                "915cd7b07a548790"
+            ]
+        ]
+    },
+    {
+        "id": "1ae4b32560d3ba7e",
+        "type": "play audio",
+        "z": "668853a60b4694c8",
+        "name": "",
+        "voice": "",
+        "x": 1430,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "10b203f385dc9ed8",
+        "type": "telegram bot",
+        "botname": "Abrobabot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
